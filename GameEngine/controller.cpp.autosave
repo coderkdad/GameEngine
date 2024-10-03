@@ -1,0 +1,49 @@
+#include "controller.h"
+#include <QDebug>
+
+Controller::Controller(QVector3D vecPosFire, int strPriority, QObject *parent)
+    : QObject(parent)
+{
+//    entity->setObjectName("fire"+QString::number(Counts));
+
+    thread.setObjectName("threadFire");
+    entity = new EntityEmitterFire(vecPosFire);
+    entity->moveToThread(&thread);
+    connect(&thread, &QThread::started, this, &Controller::emtStarted);
+//    connect(&thread, &QThread::finished, this, &Controller::emtLocalFinish);
+    connect(this, &Controller::goWork, entity, &EntityEmitterFire::createPartecal);
+    connect(entity, &EntityEmitterFire::emtFinished, this, &Controller::emtDeleted);
+    connect(entity, &EntityEmitterFire::emtFinished, this, &Controller::deleteLater);
+
+    if(strPriority==1){
+        thread.start(QThread::HighestPriority);
+    } else if(strPriority==2) {
+        thread.start(QThread::NormalPriority);
+    } else if(strPriority==3){
+        thread.start(QThread::LowPriority);
+    }
+    emit goWork();
+}
+
+Controller::~Controller()
+{
+    thread.quit();
+    thread.wait();
+    thread.deleteLater();
+    entity->deleteLater();
+}
+
+void Controller::emtStarted()
+{
+    emit emtCreateFire(entity);
+}
+void Controller::emtDeleted()
+{
+    emit emtDeleterFire(entity, this);
+}
+void Controller::emtLocalFinish()
+{
+    qDebug("KK");
+}
+
+

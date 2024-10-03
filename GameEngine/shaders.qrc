@@ -1,0 +1,36 @@
+<RCC>
+    <qresource prefix="/">
+        <file>fragmentShader.fsh</file>
+        <file>vertexShader.vsh</file>
+        <file>vshader.vsh</file>
+        <file>fshader.fsh</file>
+    </qresource>
+    <qresource prefix="/blender">
+        <file>FilesObject/objRoad.obj</file>
+        <file>FilesObject/texPlane.jpg</file>
+        <file>FilesObject/texRoad.jpg</file>
+        <file>FilesObject/objErth.obj</file>
+        <file>FilesObject/objFire.obj</file>
+        <file>FilesObject/objHome.obj</file>
+        <file>FilesObject/objSquare.obj</file>
+        <file>FilesObject/texErth.png</file>
+        <file>FilesObject/texFire.png</file>
+        <file>FilesObject/texHome.png</file>
+        <file>FilesObject/texRocket.png</file>
+        <file>FilesObject/texSquare.png</file>
+        <file>FilesObject/texHome2.png</file>
+        <file>FilesObject/objBuild.obj</file>
+        <file>FilesObject/objPlaneShort.obj</file>
+        <file>FilesObject/objRocket.obj</file>
+        <file>FilesObject/objCarPoly.obj</file>
+        <file>FilesObject/texCarPoly.png</file>
+        <file>FilesObject/objHuman.obj</file>
+        <file>FilesObject/texHuman.png</file>
+        <file>FilesObject/Bullet.obj</file>
+        <file>FilesObject/Erth20x20.obj</file>
+        <file>FilesObject/Gun1.obj</file>
+        <file>FilesObject/testCubes_522.dae</file>
+        <file>FilesObject/Build.obj</file>
+        <file>FilesObject/gun1.jpg</file>
+    </qresource>
+</RCC>
